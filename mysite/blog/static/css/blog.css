@@ -1,0 +1,277 @@
+:root {
+  --color-primary: rgb(70, 138, 202);
+  --color-secondary: rgb(241, 238, 245);
+  --color-secondary-dark: #777;
+  --color-tertiary: rgb(56, 209, 115);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2rem 3rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover, li:hover{
+  text-decoration: underline;
+}
+
+li {
+  list-style-type: none;
+  color: var(--color-primary);
+}
+
+.content {
+  width: 60%;
+  margin-right: auto;
+  margin-bottom: 2rem;;
+}
+
+.sidebar {
+  background-color: var(--color-secondary);
+  border-radius: 1rem;
+  padding: 1rem;
+  height: fit-content;
+}
+
+.sidebar h2 {
+    color: var(--color-primary);
+}
+
+.sidebar h3 {
+    color: var(--color-tertiary);
+    margin: 1rem 0 .5rem 0;
+}
+
+.link {
+    color: var(--color-primary) !important;
+}
+
+.link:hover {
+    color: var(--color-tertiary) !important;
+}
+
+.heading {
+  color: var(--color-primary) !important;
+  margin-bottom: 1.8rem ;
+}
+
+.blog-posts {
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-post {
+  margin-bottom: 2rem;
+}
+
+.blog-post__title {
+  text-transform: capitalize;
+}
+
+.blog-post__title:hover {
+  color: var(--color-primary);
+}
+
+.blog-post__date {
+  font-size: 0.8rem;
+}
+
+.author {
+  color: var(--color-tertiary);
+}
+
+.pill {
+  padding: 0.2rem 0.3rem;
+  border-radius: 1.5rem;
+}
+
+.pill:hover {
+  text-decoration: underline;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+}
+
+.share {
+  font-size: 0.8rem;
+  background-color: var(--color-secondary);
+  margin-left: 0.5rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.tag {
+  font-size: 0.9rem;
+  background-color: var(--color-tertiary);
+  margin-right: 0.6rem;
+  border: 1px solid black;
+}
+
+.tagged {
+  margin-bottom : 1rem;
+}
+
+.valid {
+  color: var(--color-tertiary);
+}
+
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-share {
+  width: 22rem;
+  background-color: var(--color-secondary);
+  padding: 1rem 1.5rem;
+  border-radius:  .5rem;
+}
+
+.form-share p {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.form-share label {
+  color: var(--color-primary);
+}
+
+.form-share input {
+  width: 100%;
+  padding: .5rem 0;
+}
+
+.form-share button{
+  padding: .8rem .5rem;
+  font-size: 1rem;
+  text-transform: capitalize;
+  background-color: var(--color-secondary);
+  color: var(--color-tertiary);
+  border: 1px solid var(--color-tertiary);
+  border-radius: .5rem;
+}
+
+.pagination {
+  margin: 0 auto;
+  display: flex;
+}
+
+.page-prev,
+.page-current,
+.page-next {
+  padding: .5rem;
+  background-color: var(--color-secondary);
+  font-weight: bold;
+  border: 1px solid black;
+}
+
+.page-prev, 
+.page-next {
+  color: var(--color-primary);
+}
+
+.page-prev {
+  border-radius: 2rem 0  0 2rem;
+}
+
+.page-next {
+  border-radius: 0 2rem 2rem 0;
+}
+
+.post {
+  width: 30rem;
+  margin: 1rem 0;
+}
+
+.post__title {
+  color: var(--color-primary);
+}
+
+.post__date {
+  font-size: 0.8rem;
+}
+
+.post__body {
+  margin: 1rem 0;
+  line-height: 1.1rem;
+}
+
+.comments-count {
+  font-size: .9rem;
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-secondary);
+  border-radius: .5rem;
+  padding: .5rem;
+  width: 30rem;
+}
+
+.comment {
+  margin-bottom: 1.2rem;
+}
+
+.comment__info {
+  color: var(--color-primary);
+}
+
+.comment-body {
+  border: 1px solid black;
+}
+
+.comment_form, .comment_form p {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment_form  {
+  margin: 1rem 0;
+  width: 30rem;
+}
+
+.comment_form button {
+  margin-top: .5rem;
+  font-size: 1rem;
+  padding: .5rem;
+}
+
+.empty {
+  color: #777;
+}
+
+.similar-posts {
+  display: flex;
+  flex-direction: column;
+}
+
+.similar-post {
+  color: var(--color-tertiary);
+  line-height: 1.2rem;
+}

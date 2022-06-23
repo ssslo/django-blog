@@ -1,0 +1,37 @@
+{% load blog_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}" rel="stylesheet">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div id="content" class="content">
+        {% block content %}
+        {% endblock %}
+    </div> 
+
+    <div id="sidebar" class="sidebar">
+        <h2> <a href="{% url 'blog:post_list' %}" class="link"> My blog </a></h2>
+        <p>This is my blog, I've written {% total_posts %} post so far.</p>
+        <div class="latest_posts">
+            <h3>Latest Posts</h3>
+            {% show_latest_posts %}
+        </div>
+        <p class="feed"> <a href="{% url 'blog:post_feed' %}"> Subscribe to my RSS feed</a></p>
+        <div class="most_commented_posts">
+            <h3>Most Commented Post</h3>
+            {% get_most_commented_posts as most_commented_posts %}
+            <ul>
+                {% for post in most_commented_posts %}
+                <li><a href="{{ post.get_absolute_url }}" class="link"> {{ post.title }} </a></li>
+                {% endfor %}
+            </ul> 
+        </div>
+    </div>
+</body>
+</html>

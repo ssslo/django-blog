@@ -1,0 +1,59 @@
+{% extends 'blog/base.html' %}
+{% load blog_tags %}
+{% block title %} {{ post.title }} {% endblock %}
+
+{% block content %}
+    <div class="post">
+        <h1 class="post__title"> {{ post.title }}</h1>
+        <p class="post__date">
+            Published {{ post.publish }} by <span class="post__author">{{ post.author }}</span>
+        </p>
+        <div class="post__body">
+            {{ post.body|markdown }}
+        </div>
+        
+        {% with comments.count as total_comments %}
+            <h2 class="comments-count">
+                {{ total_comments }} comment{{ total_comments|pluralize }}
+            </h2>
+        {% endwith %}
+    </div>
+    <div class="comments">
+        {% for comment in comments %}
+        <div class="comment">
+            <p class="comment__info">
+                comment {{ forloop.counter }} by {{ comment.name }}
+                {{ comment.created }}
+            </p>
+            <div class="comment__body">
+                {{ comment.body|linebreaks }}
+            </div>
+        </div>
+        {% empty %}
+        <p class="empty">There are no comments yet.</p>
+        {% endfor %}
+    </div>
+        
+    <div class="comment_form">
+        {% if new_comment %}
+        <h2 class="valid">Your comment has been added.</h2>
+        {% else %}
+        <h2 class="form__title">Add a new comment</h2>
+        <form method="post">
+            {{ comment_form.as_p }}
+            {% csrf_token %}
+            <button type="submit" >Add Comment</button>
+        </form>
+        {% endif %}
+    </div>
+    <div class="similar-posts">
+            <h2 class="simpilar-posts__title">Similar posts</h2>
+        {% for post in similar_posts %}
+        <p class="similar_post">
+            <a href="{{ post.get_absolute_url }}" class="link">{{ post.title }}</a>
+        </p>
+        {% empty %}
+        <p class="empty">There are no similare posts yet</p>
+        {% endfor %}
+    </div>
+{% endblock %}
